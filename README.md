@@ -1,29 +1,29 @@
-**How to Run**
+# How to Run
 
 Clone repository locally then edit OpengovWorkflowStandAloneApplication.java and...
 
 There are two paths to execute this:
 
--> Spring Tool Suite
+1. Spring Tool Suite
    - Import project into STS.
    - Run as SpringBoot application.
    
--> Maven and a Terminal
+2. Maven and a Terminal
    - cd to your local path
    - Make sure MAVEN is installed in your system.
    - mvn spring-boot:run to run the application
    - mvn test to run Unit Tests
 
 
-**Workflow Simulator**
+# Workflow Simulator
 
 This application intends to emulate a Job running framework.
 
 The framework provides the following entities:
 
-* Job: which represents a Job.
-* WorkFlow: which represents a logical grouping of Jobs together.
-* DependencyResolver: which is in charge of resolving dependencies for correct job execution order.
+- Job: which represents a Job.
+- WorkFlow: which represents a logical grouping of Jobs together.
+- DependencyResolver: which is in charge of resolving dependencies for correct job execution order.
 
 A Job then will output its name when executed. So will a Work Flow. 
 
@@ -32,10 +32,10 @@ registered upon job will not run until all of its dependent jobs have run.
 
 Framework also contains two services:
 
-* Job Service: Creates jobs.
-* Workflow Service: Creates workflows.
+- Job Service: Creates jobs.
+- Workflow Service: Creates workflows.
 
-**Assumptions and Considerations**
+# Assumptions and Considerations
 
 - Framework is single threaded at this point. 
 - If we wished to make this multi threaded we could look into implementing Runnable and using a thread pool.
@@ -46,7 +46,7 @@ algorithm, there are plenty online available.
 
 This project is using Springboot in Stand Alone mode. 
 
--> If we wanted to build this into a Service, I would suggest we:
+1. If we wanted to build this into a Service, I would suggest we:
    - Separate away the job/workflow framework into a separate standalone library.
    - Change into SpringBoot web app mode instead of stand alone app and create CRUD APIs for JOBs and WORKFLOWs. We could define
      easy API contracts using REST for both.
@@ -54,13 +54,13 @@ This project is using Springboot in Stand Alone mode.
    - Dockerize everything.
    - Move into a multi-threaded model.
 
--> Current Scaling issues:
+2. Current Scaling issues:
    - Framework is single thread... yiuk! Move into multi-threaded to leverage multiple hardware threads.
    - Dockerize in order to be able to leverage Auto Scaling Groups and Swarm/K8s. As well as ease deployment.
    - Jobs without dependency could run in parallel in order to speed execution.
    - Performance/Load/System testing would be nice in order to tune and capacity plan.
 
--> Potential applications of this workflow manager:
+3. Potential applications of this workflow manager:
    - This can become a Task Automation framework for Foreground/Background jobs.
    - It can allow asynchrounous decoupling by using a Queue like SQS or RabbitMQ.
  
