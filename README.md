@@ -1,4 +1,4 @@
-*How to Run*
+**How to Run**
 
 Clone repository locally then edit OpengovWorkflowStandAloneApplication.java and...
 
