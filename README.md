@@ -1,4 +1,4 @@
-**How to Run
+**How to Run**
 
 Clone repository locally then edit OpengovWorkflowStandAloneApplication.java and...
 
@@ -15,7 +15,7 @@ There are two paths to execute this:
    - mvn test to run Unit Tests
 
 
-**Workflow Simulator
+**Workflow Simulator**
 
 This application intends to emulate a Job running framework.
 
@@ -35,7 +35,7 @@ Framework also contains two services:
 * Job Service: Creates jobs.
 * Workflow Service: Creates workflows.
 
-**Assumptions and Considerations
+**Assumptions and Considerations**
 
 - Framework is single threaded at this point. 
 - If we wished to make this multi threaded we could look into implementing Runnable and using a thread pool.
